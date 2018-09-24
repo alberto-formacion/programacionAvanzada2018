@@ -3,8 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sanluis.hbm</groupId>
-	<artifactId>hibernateConfig</artifactId>
+	<!-- https://mvnrepository.com/
+		se verán las librerias y con las dependencias, 
+		maven descargará las librerías que necesite al añadir las dependencias correspondientes en el fichero pom.xml
+	 -->
+	
+	<groupId>com.sanluis.hbm</groupId> <!-- Paquete base -->
+	<artifactId>hibernateConfig</artifactId> <!-- nombre del proyecto -->
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -27,6 +32,10 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.3.6.Final</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.47</version>
+		</dependency>
 	</dependencies>
 </project>

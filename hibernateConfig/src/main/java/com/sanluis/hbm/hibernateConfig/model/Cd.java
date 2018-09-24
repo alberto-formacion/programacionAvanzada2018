@@ -12,7 +12,7 @@ public class Cd {
 
 	@Id
 	@GeneratedValue
-	@Column(name="id")
+	@Column(name="id")//solo estamos obligados a poner el name cuando el nombre de la columna es diferente a este nombre. Si son iguales no es obligatorio
 	private long id;
 	
 	@Column(name="titel")
