@@ -3,11 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<!-- Pakete de nuestro codigo fuente -->
 	<groupId>com.sanluis.hbm</groupId>
+	<!-- Nombre de nuestro proyecto -->
 	<artifactId>hibernateConfig</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<!-- Nuestra version del proyecto -->
+	<version>0.0.1-SNAPSHOT</version>	
 	<packaging>jar</packaging>
 
+	<!-- Nombre de nuestro proyecto -->
 	<name>hibernateConfig</name>
 	<url>http://maven.apache.org</url>
 
@@ -15,17 +19,24 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<!-- Dependencias -->
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<groupId>junit</groupId><!-- ID paquete dependencia -->
+			<artifactId>junit</artifactId><!-- Nombre paquete dependencia -->
+			<version>3.8.1</version><!-- Version dependencia -->
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.3.6.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.47</version>
 		</dependency>
 
 	</dependencies>
