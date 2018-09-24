@@ -1,7 +1,10 @@
 package com.sanluis.hbm.hibernateConfig;
 
+
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 
 import com.sanluis.hbm.hibernateConfig.model.Cd;
 
@@ -18,6 +21,6 @@ public class App {
     			.addAnnotatedClass(Cd.class);
     			
     		SessionFactory sf = cfg.buildSessionFactory();
-
+        	
     }
 }

@@ -6,13 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity 
 @Table(name="cds")
 public class Cd {
 
 	@Id
 	@GeneratedValue
-	@Column(name="id")
+	//@Column(name="id")
 	private long id;
 	
 	@Column(name="titel")
