@@ -1,5 +1,8 @@
 package com.sanluis.hbm.hibernateConfig;
 
+import java.util.List;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -18,6 +21,18 @@ public class App {
     			.addAnnotatedClass(Cd.class);
     			
     		SessionFactory sf = cfg.buildSessionFactory();
+    		
+    		Session s = sf.getCurrentSession();
+    		
+    		s.beginTransaction();
+    		
+    		List<Cd> cds = s.createQuery("from Cd").list();
+    		
+    		for(Cd cd: cds){
+    			System.out.println(cd.getTitulo());
+    		}
+    		
+    		s.getTransaction().commit();
 
     }
 }
