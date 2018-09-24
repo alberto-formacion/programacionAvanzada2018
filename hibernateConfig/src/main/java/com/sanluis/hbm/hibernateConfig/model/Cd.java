@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cds")
+@Table(name="cds") //Aqui referenciamos a la tabla que vamos a usar. Si es igual el nombre que el de la bd no es necesario.
 public class Cd {
 
-	@Id
-	@GeneratedValue
-	@Column(name="id")
+	@Id //indica que es un id
+	@GeneratedValue //indica que es un valor auto generado
+	@Column(name="id") //indica que hay una columna en la tabla que es id.
 	private long id;
 	
 	@Column(name="titel")
