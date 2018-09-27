@@ -25,7 +25,7 @@ public class PostDetalle {
     @Column(name = "creador")
     private String creador;
  
-    @OneToOne(fetch = FetchType.LAZY) //la realacion es 1 a 1
+    @OneToOne(fetch = FetchType.LAZY) //lazy significa que solo dará la informacion de los post cuando se lo pidas, si no lo pides no lo muestra. Es una relacion 1 a 1
     @JoinColumn(name = "post_id")
     private Post post;
 

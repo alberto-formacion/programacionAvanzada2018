@@ -19,7 +19,7 @@ public class Post {
  
     private String titulo;
  
-    //@OneToMany(cascade = CascadeType.ALL) UNIDIRECCIONAL
+    //@OneToMany(cascade = CascadeType.ALL) UNIDIRECCIONAL -- con el post sabemos cuales son sus cpmentarios pero de un comentario no sabremos a que post pertenece
     @OneToMany(mappedBy="post") //BIDIRECCIONAL
     private List<Comentario> comentarios = new ArrayList<Comentario>();
 
