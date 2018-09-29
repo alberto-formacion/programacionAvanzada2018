@@ -1,11 +1,10 @@
-package com.sanluis.hbm.hibernateMapping;
+package com.sanluis.hbm.hibernateMappingPractica;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import com.sanluis.hbm.hibernateMapping.vo.onetoone.Post;
-import com.sanluis.hbm.hibernateMapping.vo.onetoone.PostDetalle;
+import com.sanluis.hbm.hibernateMappingPractica.vo.onetomany.Aula;
+import com.sanluis.hbm.hibernateMappingPractica.vo.onetomany.Equipo;
 
 /**
  * Hello world!
@@ -17,14 +16,14 @@ public class App
     {
     	Configuration cfg = new Configuration()
     			.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver") //driver
-    			.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/blog") //url .. la base de datos debe existir
+    			.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/centroDB") //url .. la base de datos debe existir
     			.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect") //segun la base de datos se usa uno diferente, SQLServerDialect, OracleDialect..
     			.setProperty("hibernate.connection.username", "root") //usuario
-    			.setProperty("hibernate.connection.password", "") //password
+    			.setProperty("hibernate.connection.password", "87Di@blo87") //password
     			.setProperty("hibernate.show_sql", "true") //para indicar k nos muestre las consultas
     			.setProperty("hibernate.current_session_context_class", "thread") //indica el contexto de la sesion ke se ejecute en el hilo principal
-    			.addAnnotatedClass(Post.class) //ponemos cada una de las clases que keremos mapear
-    			.addAnnotatedClass(PostDetalle.class); //ponemos cada una de las clases que keremos mapear
+    			.addAnnotatedClass(Aula.class) //ponemos cada una de las clases que keremos mapear
+    			.addAnnotatedClass(Equipo.class); //ponemos cada una de las clases que keremos mapear
     			
     		SessionFactory sf = cfg.buildSessionFactory();
 
@@ -32,10 +31,10 @@ public class App
     		
     		s.beginTransaction(); //SIEMPRE comenzamos con transacciones
     		
-    		java.util.List<Post> cds = s.createQuery("from Post").list(); //Usamos el nombre de la entidad, hibernate realiza el mapping
+    		java.util.List<Aula> _aulas = s.createQuery("from Aula").list(); //Usamos el nombre de la entidad, hibernate realiza el mapping
     		
-    		for(Post cd:cds) {
-    			System.out.println(cd.getTitulo());
+    		for(Aula vAula:_aulas) {
+    			System.out.println(vAula.getCodAula());
     		}
     		
     		s.getTransaction().commit(); //hay que finalizar la transaccion
