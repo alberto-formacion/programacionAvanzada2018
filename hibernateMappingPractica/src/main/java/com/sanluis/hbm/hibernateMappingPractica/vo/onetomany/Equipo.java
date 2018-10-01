@@ -15,6 +15,7 @@ public class Equipo {
  
     @Id
     @GeneratedValue
+	@Column
     private Long id;
 
 	@Column

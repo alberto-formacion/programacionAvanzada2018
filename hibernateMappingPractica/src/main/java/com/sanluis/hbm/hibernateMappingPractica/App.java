@@ -16,7 +16,7 @@ public class App
     {
     	Configuration cfg = new Configuration()
     			.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver") //driver
-    			.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/centroDB") //url .. la base de datos debe existir
+    			.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/centrodb") //url .. la base de datos debe existir
     			.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect") //segun la base de datos se usa uno diferente, SQLServerDialect, OracleDialect..
     			.setProperty("hibernate.connection.username", "root") //usuario
     			.setProperty("hibernate.connection.password", "") //password

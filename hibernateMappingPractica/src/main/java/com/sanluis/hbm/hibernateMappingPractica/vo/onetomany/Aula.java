@@ -3,6 +3,7 @@ package com.sanluis.hbm.hibernateMappingPractica.vo.onetomany;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,8 +17,10 @@ public class Aula {
  
     @Id
     @GeneratedValue
+	@Column
     private Long id;
- 
+
+	@Column(name = "codAula")
     private String codAula;
  
     //@OneToMany(cascade = CascadeType.ALL) UNIDIRECCIONAL
