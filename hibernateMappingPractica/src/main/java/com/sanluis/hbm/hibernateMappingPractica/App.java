@@ -32,9 +32,14 @@ public class App
     		s.beginTransaction(); //SIEMPRE comenzamos con transacciones
     		
     		java.util.List<Aula> _aulas = s.createQuery("from Aula").list(); //Usamos el nombre de la entidad, hibernate realiza el mapping
-    		
+
+			System.out.println("");
     		for(Aula vAula:_aulas) {
-    			System.out.println(vAula.getCodAula());
+    			System.out.println(" - ".concat(vAula.getCodAula()));
+    			for(Equipo vEquipo:vAula.getEquipos()) {
+        			System.out.println("   - ".concat(vEquipo.getCodEquipo()));    				
+    			}
+    			System.out.println("");
     		}
     		
     		s.getTransaction().commit(); //hay que finalizar la transaccion

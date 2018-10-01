@@ -24,7 +24,7 @@ public class Aula {
     private String codAula;
  
     //@OneToMany(cascade = CascadeType.ALL) UNIDIRECCIONAL
-    @OneToMany(mappedBy = "aula") //BIDIRECCIONAL
+    @OneToMany(mappedBy = "aula", fetch = FetchType.LAZY) //BIDIRECCIONAL
     private List<Equipo> equipos = new ArrayList<Equipo>();
 
 	public Long getId() {
