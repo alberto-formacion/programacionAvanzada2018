@@ -19,7 +19,7 @@ public class App
     			.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/centroDB") //url .. la base de datos debe existir
     			.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect") //segun la base de datos se usa uno diferente, SQLServerDialect, OracleDialect..
     			.setProperty("hibernate.connection.username", "root") //usuario
-    			.setProperty("hibernate.connection.password", "87Di@blo87") //password
+    			.setProperty("hibernate.connection.password", "") //password
     			.setProperty("hibernate.show_sql", "true") //para indicar k nos muestre las consultas
     			.setProperty("hibernate.current_session_context_class", "thread") //indica el contexto de la sesion ke se ejecute en el hilo principal
     			.addAnnotatedClass(Aula.class) //ponemos cada una de las clases que keremos mapear
