@@ -15,7 +15,7 @@ import com.sanluis.hbn.escuela.vo.AlumnoAsignatura;
 
 public class AlumnoAsignaturaDAO {
 	
-	private static final AlumnoAsignaturaDAO INSTANCE = null;
+	private static AlumnoAsignaturaDAO INSTANCE = null;
 	private HibernateSession hbnSesion = null;
 	
 	private AlumnoAsignaturaDAO() {
@@ -24,10 +24,10 @@ public class AlumnoAsignaturaDAO {
 	
 	public static AlumnoAsignaturaDAO getInstance(){
 		if(INSTANCE==null){
-			return new AlumnoAsignaturaDAO();
-		}else{
-			return INSTANCE;
+			INSTANCE = new AlumnoAsignaturaDAO();
 		}
+		
+		return INSTANCE;
 	}
 	
 	public List<AlumnoAsignatura> getAllWithNamedQuery() {

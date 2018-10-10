@@ -10,7 +10,7 @@ import com.sanluis.hbn.escuela.vo.Asignatura;
 
 public class HibernateSession {
 	
-	private static final HibernateSession INSTANCE = null;
+	private static HibernateSession INSTANCE = null;
 	private Configuration cfg;
 	private SessionFactory sf;
 	
@@ -21,8 +21,8 @@ public class HibernateSession {
 			.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect")
 			.setProperty("hibernate.connection.username", "root")
 			.setProperty("hibernate.connection.password", "")
-			.setProperty("hibernate.show_sql", "true")
-			.setProperty("hibernate.format_sql", "true")
+			.setProperty("hibernate.show_sql", "false")
+			.setProperty("hibernate.format_sql", "false")
 			.setProperty("hibernate.current_session_context_class", "thread")
 			.addAnnotatedClass(Alumno.class)
 			.addAnnotatedClass(Asignatura.class)
@@ -33,10 +33,9 @@ public class HibernateSession {
 	
 	public static HibernateSession getInstance(){
 		if(INSTANCE==null){
-			return new HibernateSession();
-		}else{
-			return INSTANCE;
-		}
+			INSTANCE = new HibernateSession();
+		}	
+		return INSTANCE;
 	}
 	
 	public Session getHibernateSession(){
