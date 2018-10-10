@@ -1,5 +1,6 @@
 package com.sanluis.hbn.escuela.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -29,26 +30,35 @@ public class AlumnoAsignaturaDAO {
 		}
 	}
 	
-	public List<AlumnoAsignatura> getAllWithTypedQuery() {
+	public List<AlumnoAsignatura> getAllWithNamedQuery() {
 		Session s = hbnSesion.getHibernateSession();
+		List<AlumnoAsignatura> result = new ArrayList<AlumnoAsignatura>();
 		
         hbnSesion.beginTransaction(s);
         
         TypedQuery<AlumnoAsignatura> query = s.getEntityManagerFactory().createEntityManager().createNamedQuery("AlumnoAsignatura.findAll", AlumnoAsignatura.class);
         
-        return query.getResultList();
+        result = query.getResultList();
+        
+        hbnSesion.commitTransaction(s);
+        
+        return result;
 	}
 	
 	public List<AlumnoAsignatura> getAllWithHQLQuery(){
 		Session s = hbnSesion.getHibernateSession();
+		List<AlumnoAsignatura> result = new ArrayList<AlumnoAsignatura>();
 		
         hbnSesion.beginTransaction(s);
         
-        return hbnSesion.getHibernateSession().createQuery("from AlumnoAsignatura").list();
+        result = hbnSesion.getHibernateSession().createQuery("from AlumnoAsignatura").list();
+        
+        return result;
 	}
 	
 	public List<AlumnoAsignatura> getAllWithJPAQuery(){
 		Session s = hbnSesion.getHibernateSession();
+		List<AlumnoAsignatura> result = new ArrayList<AlumnoAsignatura>();
 		
         hbnSesion.beginTransaction(s);
         
@@ -62,7 +72,9 @@ public class AlumnoAsignaturaDAO {
 		
 		criteria.select(root);
 		
-		return em.createQuery(criteria).getResultList();
+		result = em.createQuery(criteria).getResultList();
+		
+		return result;
 	}
 
 }

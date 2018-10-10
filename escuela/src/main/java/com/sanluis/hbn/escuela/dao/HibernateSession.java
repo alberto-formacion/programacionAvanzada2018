@@ -20,7 +20,7 @@ public class HibernateSession {
 			.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/escuela")
 			.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect")
 			.setProperty("hibernate.connection.username", "root")
-			.setProperty("hibernate.connection.password", "root")
+			.setProperty("hibernate.connection.password", "")
 			.setProperty("hibernate.show_sql", "true")
 			.setProperty("hibernate.format_sql", "true")
 			.setProperty("hibernate.current_session_context_class", "thread")

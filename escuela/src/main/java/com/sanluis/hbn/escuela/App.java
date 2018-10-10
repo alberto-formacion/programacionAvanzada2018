@@ -10,7 +10,7 @@ public class App{
         AlumnoAsignaturaDAO alumnoAsignaturaDAO = AlumnoAsignaturaDAO.getInstance();
         
         
-        List<AlumnoAsignatura> alumnoAsignaturas = alumnoAsignaturaDAO.getAllWithTypedQuery();
+        List<AlumnoAsignatura> alumnoAsignaturas = alumnoAsignaturaDAO.getAllWithNamedQuery();
 
         
         for(AlumnoAsignatura aa : alumnoAsignaturas){
