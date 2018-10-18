@@ -33,35 +33,41 @@ public class WebConfig implements WebMvcConfigurer  {
 	
 	@Bean
 	public ViewResolver viewResolver(){
+		//Spring llamará a este método cuando necesite saber como se van a a resolver las vistas
+		//Esto se usa para abreviar la ruta de las vistas
+		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		
-		viewResolver.setViewClass(JstlView.class);
-		viewResolver.setPrefix("/WEB-INF/views/");
-		viewResolver.setSuffix(".jsp");
+		viewResolver.setViewClass(JstlView.class); //Jstl nos sirve para poder eliminar los scriplets de los JSP
+		viewResolver.setPrefix("/WEB-INF/views/"); //eso es lo que vamos a poner por delante de lnombre de las vistas
+		viewResolver.setSuffix(".jsp"); //esto es lo que vamos a poner por detras del nombre de las vistas
 		
 		return viewResolver;
 	}
 	
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
+    	//creamos un bean donde devolveremos los datos para conectarse a la BBDD
+    	//este bean lo usará Spring para conectarse a la BBDD. NO hay que llamarlo porque Spring lo llamará el solo
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/todos");
         dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setPassword("");
      
         return dataSource;
     }
     
-    @Autowired
+    @Autowired //anotacion para inyeccion de dependencias. Spring buscará beans de tipo dataSource
 	@Bean(name = "sessionFactory")
 	public SessionFactory sessionFactory(DataSource dataSource) {
-		LocalSessionFactoryBean sfb = new LocalSessionFactoryBean();
+    	//este metododo sirve para conseguir la factoria se sesiones de Spring
+		LocalSessionFactoryBean sfb = new LocalSessionFactoryBean(); //esta clase nos proporciona Spring para configurar hibernate
 
 		sfb.setDataSource(dataSource);
-		sfb.setPackagesToScan("com.sanluis.spring.springmvc.vo");
+		sfb.setPackagesToScan("com.sanluis.spring.springmvc.vo"); //Especifica que busques en la carpeta especificada aquellas clases con la anotacion @entity
 
-		Properties props = new Properties();
+		Properties props = new Properties(); //Properties son como hashmap
 
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 
