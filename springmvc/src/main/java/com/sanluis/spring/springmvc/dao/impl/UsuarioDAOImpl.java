@@ -8,10 +8,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sanluis.spring.springmvc.dao.TodoDAO;
+import com.sanluis.spring.springmvc.dao.UsuarioDAO;
 import com.sanluis.spring.springmvc.vo.Todo;
+import com.sanluis.spring.springmvc.vo.Usuario;
 
 @Repository
-public class TodoDAOImpl implements TodoDAO {
+public class UsuarioDAOImpl implements UsuarioDAO {
 	
 	@Autowired //llama al session factory del bean del config
 	private SessionFactory sessionFactory;
@@ -21,8 +23,8 @@ public class TodoDAOImpl implements TodoDAO {
 	}
 
 	@Transactional(readOnly=true)
-	public List<Todo> getTodos() {
-		return currentSession().getEntityManagerFactory().createEntityManager().createNamedQuery("todo.getTodos", Todo.class).getResultList();
+	public List<Usuario> getUsuarios() {
+		return currentSession().getEntityManagerFactory().createEntityManager().createNamedQuery("usuario.getUsuarios", Usuario.class).getResultList();
 	}
 
 }

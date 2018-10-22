@@ -7,12 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sanluis.spring.springmvc.service.TodoService;
 import com.sanluis.spring.springmvc.vo.Todo;
 
 //@Controller funciona como bean
-@Controller(value="/todos")
+@Controller
+@RequestMapping("/todos")
 public class TodoController {
 	
 	@Autowired
@@ -31,6 +33,14 @@ public class TodoController {
 		model.addAttribute("todos", todos);*/
 		
 		return "index";
+	}
+
+	@GetMapping(value="/otro/{id}")
+	public String otro(Model model, @PathVariable int id) {
+		
+		model.addAttribute("id", id);
+		
+		return "otro";
 	}
 
 }
