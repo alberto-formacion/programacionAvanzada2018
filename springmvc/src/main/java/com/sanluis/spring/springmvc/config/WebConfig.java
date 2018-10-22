@@ -28,10 +28,12 @@ import org.springframework.web.servlet.view.JstlView;
 public class WebConfig implements WebMvcConfigurer  {
 	
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	//Con ste método evitamos que las peticiones cuyo destino sea el especificado vayan por el dispatcher servlet
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 	
-	@Bean
+	//con los bean se crean como instancias que pueden ser llamadas cuando queramos con el autowired
+    @Bean
 	public ViewResolver viewResolver(){
 		//Spring llamará a este método cuando necesite saber como se van a a resolver las vistas
 		//Esto se usa para abreviar la ruta de las vistas
