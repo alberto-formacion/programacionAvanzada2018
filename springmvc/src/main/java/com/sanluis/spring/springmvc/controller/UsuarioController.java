@@ -24,12 +24,12 @@ public class UsuarioController {
 		return "usuariosIndex";
 	}
 	
-	/*@GetMapping(value="/{id}")
-	public String usuarioById(Model model, @PathVariable int id) {
+	@GetMapping(value="/{nombre}")
+	public String usuarioById(Model model, @PathVariable("nombre") String nombre) {
 		
-		model.addAttribute("id", id);
+		model.addAttribute("nombre", nombre);
 		
 		return "usuario";
-	}*/
+	}
 
 }
