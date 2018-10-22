@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sanluis.spring.springmvc.service.TodoService;
 import com.sanluis.spring.springmvc.vo.Todo;
@@ -14,7 +16,8 @@ import com.sanluis.spring.springmvc.vo.Todo;
 
 
 //Para Spring esto será un Bean
-@Controller(value="/todos")
+@Controller
+@RequestMapping("/todos")
 public class TodoController {
 	
 	@Autowired
@@ -28,6 +31,17 @@ public class TodoController {
 		model.addAttribute("todos", todos);
 		
 		return "index";
+	}
+	
+	@GetMapping("/{nombre}")
+	public String getTodosConNombre(Model model, @PathVariable("nombre") String nombre) {
+		List<Todo> todos = todoService.getTodos();
+		
+		model.addAttribute("todos", todos);
+		model.addAttribute("nombre", nombre);
+		
+		return "index";
+		
 	}
 	
 	
