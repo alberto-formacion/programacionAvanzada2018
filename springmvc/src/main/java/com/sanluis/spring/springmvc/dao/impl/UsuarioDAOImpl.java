@@ -24,7 +24,29 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Transactional(readOnly=true)
 	public List<Usuario> getUsuarios() {
-		return currentSession().getEntityManagerFactory().createEntityManager().createNamedQuery("usuario.getUsuarios", Usuario.class).getResultList();
+		return currentSession()
+				.getEntityManagerFactory()
+				.createEntityManager()
+				.createNamedQuery("usuario.getUsuarios", Usuario.class)
+				.getResultList();
+	}
+
+	public Usuario get(String nombre) {
+		return currentSession()
+				.getEntityManagerFactory()
+				.createEntityManager()
+				.createNamedQuery("usuario.getUsuario", Usuario.class)
+				.setParameter("nombre", nombre)
+				.getSingleResult();
+	}
+	public void add(Usuario usuario){
+		currentSession().save(usuario);
+	}
+	public void update(Usuario usuario){
+		currentSession().update(usuario);
+	}
+	public void delete(Usuario usuario){
+		currentSession().delete(usuario);
 	}
 
 }

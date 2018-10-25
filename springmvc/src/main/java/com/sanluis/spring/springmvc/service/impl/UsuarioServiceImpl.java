@@ -22,4 +22,16 @@ public class UsuarioServiceImpl implements UsuarioService{
 		return usuarioDAO.getUsuarios();
 	}
 
+	public Usuario get(String nombre) {
+		return usuarioDAO.get(nombre);
+	}
+	public void add(Usuario usuario){
+		usuarioDAO.add(usuario);
+	}
+	public void delete(Usuario usuario){
+		usuarioDAO.delete(usuario);
+	}
+	public void update(Usuario usuario){
+		usuarioDAO.update(usuario);
+	}
 }

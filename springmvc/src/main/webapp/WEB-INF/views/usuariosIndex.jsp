@@ -3,6 +3,9 @@
 <html>
 <body>
 <h2>Usuarios</h2>
-
+<form action="/springmvc/usuarios/" method="get">
+	Nombre = <input name="nombre">
+	<button type="submit">Enviar</button>
+</form>
 </body>
 </html>

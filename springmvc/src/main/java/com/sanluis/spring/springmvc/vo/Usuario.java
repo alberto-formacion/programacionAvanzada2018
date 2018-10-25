@@ -10,7 +10,8 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="usuario.getUsuarios", query="SELECT t from Usuario as t")
+	@NamedQuery(name="usuario.getUsuarios", query="SELECT t from Usuario as t"),
+	@NamedQuery(name="usuario.getUsuario", query="SELECT t from Usuario as t where t.nombre = :nombre")
 })
 @Table(name="usuarios")
 public class Usuario {
