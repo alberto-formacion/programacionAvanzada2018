@@ -32,7 +32,7 @@ public class WebConfig implements WebMvcConfigurer{
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		
 		viewResolver.setViewClass(JstlView.class); //Jstl nos sirve para poder eliminar los scriplets de los JSP
-		viewResolver.setPrefix("/WEB-INF/views/"); //eso es lo que vamos a poner por delante de lnombre de las vistas
+		viewResolver.setPrefix(""); //eso es lo que vamos a poner por delante de lnombre de las vistas
 		viewResolver.setSuffix(".jsp"); //esto es lo que vamos a poner por detras del nombre de las vistas
 		
 		return viewResolver;

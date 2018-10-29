@@ -21,9 +21,9 @@ public class AlumnoController {
 	@GetMapping
 	public String getTodos(Model model) {
 		
-		List<Alumno> todos = todoService.getAlumnos();
+		List<Alumno> alumnos = todoService.getAlumnos();
 		
-		model.addAttribute("todos", todos);
+		model.addAttribute("alumnos", alumnos);
 		
 		return "index";
 	}

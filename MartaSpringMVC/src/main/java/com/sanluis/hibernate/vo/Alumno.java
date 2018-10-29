@@ -10,10 +10,11 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="alumno.getAlumnos", query="SELECT t from alumno as a")
+	@NamedQuery(name="alumno.getAlumnos", query="SELECT a from alumno as a")
 })
 @Table(name="alumno")
 public class Alumno {
+
 	@Id
 	@GeneratedValue
 	@Column
