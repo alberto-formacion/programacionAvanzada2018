@@ -21,7 +21,7 @@ public class AlumnoController {
 	@GetMapping
 	public String getTodos(Model model) {
 		
-		List<Alumno> todos = todoService.getTodos();
+		List<Alumno> todos = todoService.getAlumnos();
 		
 		model.addAttribute("todos", todos);
 		
@@ -30,7 +30,7 @@ public class AlumnoController {
 	
 	@GetMapping("/{nombre}")
 	public String getTodosConNombre(Model model, @PathVariable("nombre") String nombre) {
-		List<Alumno> todos = todoService.getTodos();
+		List<Alumno> todos = todoService.getAlumnos();
 		
 		model.addAttribute("todos", todos);
 		model.addAttribute("nombre", nombre);
