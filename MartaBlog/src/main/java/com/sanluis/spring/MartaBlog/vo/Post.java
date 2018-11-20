@@ -3,6 +3,7 @@ package com.sanluis.spring.MartaBlog.vo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Table(name="post")
 public class Post {
 	@Id
+	@GeneratedValue
 	@Column(name="idpost")
 	private int id;
 	

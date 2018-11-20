@@ -27,15 +27,15 @@
 			<td>${p.autor.nombre}</td>
 			<c:if test="${user.rol.nombre == 'admin'}">  
 		    	<td>
-		    		<a href="">Update</a><br/>
-		    		<a href="">Delete</a><br/>
+		    		<a href="<c:url value="/post/update/${p.id}" />">Update</a><br/>
+		    		<a href="<c:url value="/post/delete/${p.id}" />">Delete</a><br/>
 		    	</td>
 			</c:if>  
 		</tr>	
 	</c:forEach>
 </table>
 <c:if test="${user.rol.nombre == 'admin'}">  
-		    <a href="">Nuevo Post</a>
+		    <a href="<c:url value="/post/new" />">Nuevo Post</a>
 		</c:if>  
 </body>
 </html>

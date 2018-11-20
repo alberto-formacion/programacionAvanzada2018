@@ -26,26 +26,30 @@ public class PostDAOImpl implements PostDAO {
 	}
 
 	@Transactional(readOnly=true)
-	public List<Post> getAllByidAutor(Long id) {
+	public List<Post> getAllByidAutor(int id) {
 		return sessionFactory.getCurrentSession().createQuery("from Post where idautor='" + id + "'").list();
 	}
-	public Post findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Post findById(int id) {	
+		//Post p = (Post) sessionFactory.getCurrentSession().get(Post.class, id);
+		Post p = (Post) sessionFactory.getCurrentSession().get(Post.class, id);
+		return p;
 	}
 
 	public void insert(Post post) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().persist(post);
 		
 	}
 
 	public void update(Post post) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().update(post);
 		
 	}
 
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
+	public void deleteById(int id) {
+		Post p = (Post) sessionFactory.getCurrentSession().load(Post.class, id);
+		if(null != p){
+			sessionFactory.getCurrentSession().delete(p);
+		}
 		
 	}
 

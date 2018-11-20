@@ -21,7 +21,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	@Column(name="idusuario")
-	private Long id;
+	private int id;
 	
 	@Column
 	private String nombre;
@@ -43,10 +43,10 @@ public class Usuario {
 	private List<Post> posts = new ArrayList<Post>();*/
 	
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	/*public List<Post> getPosts() {

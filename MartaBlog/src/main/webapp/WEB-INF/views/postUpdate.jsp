@@ -5,27 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Formulario Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Listado Posts</title>
 </head>
 <body>
 	<form:form name="submitForm" method="POST">
 		<div align="center">
 			<table>
 				<tr>
-					<td>User Name</td>
-					<td><input type="text" name="userName" /></td>
+					<td>Titulo</td>
+					<td><input type="text" name="titulo" text="${post.titulo}"/></td>
 				</tr>
 				<tr>
-					<td>Password</td>
-					<td><input type="password" name="password" /></td>
+					<textarea name="textarea" rows="10" cols="50" text="${post.contenido}"></textarea>
 				</tr>
 				<tr>
 					<td></td>
 					<td><input type="submit" value="Submit" /></td>
 				</tr>
 			</table>
-			<div style="color: red">${error}</div>		
+			<div style="color: red">${error}</div>	
 		</div>
 	</form:form>
 </body>

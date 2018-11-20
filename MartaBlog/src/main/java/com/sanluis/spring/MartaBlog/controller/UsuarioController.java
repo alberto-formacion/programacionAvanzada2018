@@ -35,7 +35,7 @@ public class UsuarioController {
 	
 	@PostMapping
 	  public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) {
-	    if (loginBean != null && loginBean.getUserName() != "" & loginBean.getPassword() != "") {
+	    if (loginBean != null && loginBean.getUserName() != "" && loginBean.getPassword() != "") {
 	    	List<Usuario> users = usuarioService.getAll();
 	    	for (int i = 0; i < users.size(); i++) {
 	    		if (loginBean.getUserName().equals(users.get(i).getUser()) && loginBean.getPassword().equals(users.get(i).getPass())) {

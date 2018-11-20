@@ -18,27 +18,26 @@ public class PostServiceImpl implements PostService{
 		return postDAO.getAll();
 	}
 
-	public List<Post> getAllByidAutor(Long id) {
+	public List<Post> getAllByidAutor(int id) {
 		return postDAO.getAllByidAutor(id);
 	}
 
-	public Post findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Post findById(int id) {
+		return postDAO.findById(id);
 	}
 
 	public void insert(Post post) {
-		// TODO Auto-generated method stub
+		postDAO.insert(post);
 		
 	}
 
 	public void update(Post post) {
-		// TODO Auto-generated method stub
+		postDAO.update(post);
 		
 	}
 
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
+	public void deleteById(int id) {
+		postDAO.deleteById(id);
 		
 	}
 
